@@ -3,56 +3,17 @@ import { useState } from "react";
 
 import Subirimagen from "@/components/botones/Subirimagen";
 import Tablero from "@/components/edicion/Tablero";
+import { useImageEditor } from "@/hooks/useImageEditor";
 
 export default function Editor() {
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>("");
-  const [isProcessing, setIsProcessing] = useState<boolean>(false);
-
-  const handleFileChange = (file: File | null) => {
-    setImageFile(file);
-    
-    if (imageUrl) {
-      URL.revokeObjectURL(imageUrl);
-      setImageUrl("");
-    }
-
-    // Si se subió un nuevo archivo, genera su URL temporal
-    if (file) {
-      const url = URL.createObjectURL(file);
-      setImageUrl(url);
-    }
-  };
-
-  const aplicarFiltro = async (tipoFiltro: string) => {
-    if (!imageFile) return;
-
-    setIsProcessing(true);
-    const formData = new FormData();
-    formData.append("file", imageFile);
-    formData.append("filtro", tipoFiltro);
-
-    try {
-      const respuesta = await fetch("http://127.0.0.1:8000/filters/apply", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!respuesta.ok) throw new Error("Error en el servidor al aplicar filtro");
-
-      const blob = await respuesta.blob();
-      
-      
-      if (imageUrl) URL.revokeObjectURL(imageUrl);
-      
-      const nuevaUrl = URL.createObjectURL(blob);
-      setImageUrl(nuevaUrl);
-    } catch (error) {
-      console.error("Error al conectar con el backend:", error);
-    } finally {
-      setIsProcessing(false);
-    }
-  };
+  const {
+    imageFile,
+    imageUrl,
+    isProcessing,
+    handleFileChange,
+    aplicarFiltro
+  } = useImageEditor();
+  
   
   return (
     <main className="h-screen p-4 bg-background flex flex-col">
