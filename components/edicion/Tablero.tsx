@@ -31,14 +31,12 @@ export default function Tablero({ haveImage, titleImage, onAplicarFiltro, isProc
             <div className="flex-1 w-full border border-linocolor-2 bg-lino-orange rounded-linoradius">
             {!haveImage ? (
                 <div className="justify-center ">
-                {/* Pantalla para visualizar la imagen cargada */}
 
                     <p>Sube una imagen</p>
                 
                 </div>
             ) : (
                 <div className="flex-1 w-full border border-linocolor-2 bg-lino-orange rounded-linoradius gap-4">
-                {/* Pantalla para visualizar la imagen cargada */}
 
                     <img src={titleImage} alt="Preview" className="rounded-linoradius object-contain"/>
 
@@ -92,7 +90,6 @@ interface BotonFiltroProps {
 disabled: boolean;
 }
 
-{/* Componente - Boton de filtro */}
 const BotonFiltro = ({ label, onClick, disabled }: BotonFiltroProps) => {
     return(
     <button

@@ -6,7 +6,8 @@ export default function Home() {
      
       
 
-      <Abrireditor />
+      <Abrireditor namePage="Abrir Editor" linkPage="/editor" />
+      <Abrireditor namePage="Editor tarjeta" linkPage="/lettereditor" />
     
     </div>
   );

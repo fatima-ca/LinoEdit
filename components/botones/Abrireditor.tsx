@@ -1,12 +1,19 @@
 import Link from 'next/link';
-export default function Abrireditor() {
+
+
+interface AbrireditorProps {
+    namePage: string;
+    linkPage: string;
+}
+
+export default function Abrireditor({ namePage, linkPage }: AbrireditorProps) {
 
     return(
         <div>
 
             <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-linoradius">
-                <Link href="/editor" className="hover:text-linocolor-4">
-                    Abrir Editor
+                <Link href={linkPage} className="hover:text-linocolor-4">
+                    {namePage}
                 </Link>
             </button>
 

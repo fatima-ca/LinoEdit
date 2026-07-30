@@ -12,13 +12,12 @@ export default function Editor() {
   const handleFileChange = (file: File | null) => {
     setImageFile(file);
     
-    // Si hay un archivo anterior, liberamos su memoria
     if (imageUrl) {
       URL.revokeObjectURL(imageUrl);
       setImageUrl("");
     }
 
-    // Si se subió un nuevo archivo, generamos su URL temporal
+    // Si se subió un nuevo archivo, genera su URL temporal
     if (file) {
       const url = URL.createObjectURL(file);
       setImageUrl(url);
