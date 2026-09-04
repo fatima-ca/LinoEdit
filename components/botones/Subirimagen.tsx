@@ -3,10 +3,10 @@ import React, { useRef, useState} from "react";
 
 interface FileUploadProps {
     onFileChange?: (file: File | null) => void;
-}
+};
 
 
-export default function Subirimagen({  onFileChange}: FileUploadProps) {
+export default function Subirimagen({ onFileChange }: FileUploadProps) {
 
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -31,7 +31,7 @@ export default function Subirimagen({  onFileChange}: FileUploadProps) {
     };
 
     return(
-        <div>
+        <div className="w-full h-full flex flex-col gap-4 border border-lino-purple p-4 rounded-bigradius items-center justify-center">
             <input
                 type="file"
                 ref={inputRef}
@@ -44,7 +44,7 @@ export default function Subirimagen({  onFileChange}: FileUploadProps) {
                 <button
                     type="button"
                     onClick={onChooseFile}
-                    className="w-full px-4 rounded-linoradius border-2 border-dashed hover:bg-white/0"
+                    className="w-full px-4 rounded-little radius border-2 border-dashed hover:bg-white/0"
                 >
                     <span className="flex items-center justify-center">
                         Seleccionar imagen
@@ -64,7 +64,7 @@ export default function Subirimagen({  onFileChange}: FileUploadProps) {
                                 </div>
                                 <div className="flex-1">
                                     <p className="truncate max-w-50">
-                                        {selectedImage.name}
+                                       Imagen seleccionada: {selectedImage.name}
                                     </p>
                                     <p className="">
                                         {(selectedImage.size / 1024).toFixed(2)} KB

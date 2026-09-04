@@ -11,8 +11,8 @@ export default function Abrireditor({ namePage, linkPage }: AbrireditorProps) {
     return(
         <div>
 
-            <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-linoradius">
-                <Link href={linkPage} className="hover:text-linocolor-4">
+            <button className="bg-lino-pink hover:bg-lino-pink-soft text-white py-2 px-4 rounded-linoradius">
+                <Link href={linkPage}>
                     {namePage}
                 </Link>
             </button>

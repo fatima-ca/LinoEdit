@@ -16,25 +16,26 @@ export default function Editor() {
   
   
   return (
-    <main className="h-screen p-4 bg-background flex flex-col">
+    <main className="h-screen p-4 flex flex-col">
 
-      <h1 className="">
+      <h1 className="text-amber-300">
         Empieza a editar tu imagen
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+      <div className="grid grid-cols-5 gap-10">
 
-        <div className="md:col-start-2 md:col-span-3 border border-linocolor-2 p-4 rounded-linoradius flex items-center justify-center min-h-170">
+        <div className="col-start-2 col-span-2">  
             <Tablero 
               haveImage={!!imageFile} 
-              titleImage={imageUrl} 
+              imageUrl={imageUrl} 
+              imageName={imageFile?.name}
               onAplicarFiltro={aplicarFiltro} 
               isProcessing={isProcessing}/>
-        </div>
+        </div>  
 
-        <div className="md:col-span-1 border border-linocolor-2 p-4 rounded-linoradius">
+       
           <Subirimagen onFileChange={handleFileChange}/>
-        </div>
+      
       </div>
 
     </main>
