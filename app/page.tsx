@@ -2,7 +2,7 @@ import Abrireditor from "@/components/botones/Abrireditor";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center font-sans">
+    <div className="flex flex-col flex-1 items-center justify-center">
       <h2 className="text-lino-purple-soft">Lino Edit</h2>
      
       

@@ -18,19 +18,19 @@ export default function Editor() {
   return (
     <main className="h-screen p-4 flex flex-col">
 
-      <h1 className="text-amber-300">
-        Empieza a editar tu imagen
-      </h1>
+      
 
       <div className="grid grid-cols-5 gap-10">
 
         <div className="col-start-2 col-span-2">  
+          <div className="w-full h-170">
             <Tablero 
               haveImage={!!imageFile} 
               imageUrl={imageUrl} 
               imageName={imageFile?.name}
               onAplicarFiltro={aplicarFiltro} 
               isProcessing={isProcessing}/>
+              </div>
         </div>  
 
        
